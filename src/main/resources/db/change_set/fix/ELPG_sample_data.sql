@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset seba:1
 
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS ingredients CASCADE;
@@ -12,11 +14,11 @@ DROP TABLE IF EXISTS ing_colors CASCADE;
 create table users
 (
     id            bigserial,
-    name          char[] not null,
-    email         char[] not null,
-    h_pass        char[] not null,
-    surname       char[],
-    nick          char[],
+    name          char[150] not null,
+    email         char[150] not null,
+    h_pass        char[250] not null,
+    surname       char[150],
+    nick          char[150],
     geolocation   point,
     register_data date   not null,
     constraint users_pk
@@ -32,7 +34,7 @@ create unique index users_id_uindex
 create table ingredients
 (
     id          bigserial,
-    name        char[]  not null,
+    name        char[150]  not null,
     rating      integer not null,
     description text,
     constraint ingredients_pk
@@ -48,8 +50,8 @@ create unique index ingredients_id_uindex
 create table products
 (
     id          bigserial,
-    name        char[]  not null,
-    producer    char[]  not null,
+    name        char[250]  not null,
+    producer    char[150]  not null,
     prod_rating integer not null,
     prod_ing    text    not null,
     user_id     bigint  not null,
@@ -105,7 +107,7 @@ create unique index user_search_one_ing_id_uindex
 create table tags
 (
     id   bigserial,
-    name char[] not null,
+    name char[150] not null,
     constraint tags_pk
         primary key (id)
 );
@@ -119,7 +121,7 @@ create unique index tags_id_uindex
 create table colors
 (
     id   bigserial,
-    name char[] not null,
+    name char[150] not null,
     constraint colors_pk
         primary key (id)
 );
