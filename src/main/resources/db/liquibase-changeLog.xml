@@ -8,7 +8,7 @@
       http://www.liquibase.org/xml/ns/pro
       http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 
-    <includeAll path="classpath:db/change_log/Fix.xml" relativeToChangelogFile="false"/>
-
-
+    <include file="db/change_log/secondVersionBaseWithCategoryTable.xml" />
+    <include file="db/change_log/addColumnInUser-PrimaryAdmin.xml"/>
+<!--relativeToChangelogFile="false"-->
 </databaseChangeLog>

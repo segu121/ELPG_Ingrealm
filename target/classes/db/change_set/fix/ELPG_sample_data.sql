@@ -25,8 +25,6 @@ create table users
         primary key (id)
 );
 
-alter table users
-    owner to "ELPgrande";
 
 create unique index users_id_uindex
     on users (id);
@@ -41,8 +39,6 @@ create table ingredients
         primary key (id)
 );
 
-alter table ingredients
-    owner to "ELPgrande";
 
 create unique index ingredients_id_uindex
     on ingredients (id);
@@ -60,8 +56,7 @@ create table products
         primary key (id)
 );
 
-alter table products
-    owner to "ELPgrande";
+
 
 create unique index products_id_uindex
     on products (id);
@@ -79,8 +74,7 @@ create table user_add_ing
             deferrable
 );
 
-alter table user_add_ing
-    owner to "ELPgrande";
+
 
 create unique index user_add_ing_id_uindex
     on user_add_ing (id);
@@ -112,8 +106,7 @@ create table tags
         primary key (id)
 );
 
-alter table tags
-    owner to "ELPgrande";
+
 
 create unique index tags_id_uindex
     on tags (id);
@@ -126,8 +119,7 @@ create table colors
         primary key (id)
 );
 
-alter table colors
-    owner to "ELPgrande";
+
 
 create unique index colors_id_uindex
     on colors (id);
@@ -145,8 +137,7 @@ create table tags_colors
         foreign key (color_id) references colors
 );
 
-alter table tags_colors
-    owner to "ELPgrande";
+
 
 create unique index tags_colors_id_uindex
     on tags_colors (id);
@@ -164,8 +155,7 @@ create table ing_colors
         foreign key (color_id) references colors
 );
 
-alter table ing_colors
-    owner to "ELPgrande";
+
 
 create unique index ing_colors_id_uindex
     on ing_colors (id);
