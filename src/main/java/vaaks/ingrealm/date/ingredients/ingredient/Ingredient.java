@@ -1,10 +1,8 @@
-package vaaks.ingrealm.ingredient;
+package vaaks.ingrealm.date.ingredients.ingredient;
 
 import lombok.*;
-import vaaks.ingrealm.product.Product;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
@@ -18,9 +16,9 @@ public class Ingredient {
     private Long id;
 
     private String name;
-    private double rating;
+    private int naturalRating;
     private String description;
-
-//    @OneToMany
-//    private List<Product> products;
+    private String INCIName;
+    private long categoryId;
+    private int rating;
 }

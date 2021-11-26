@@ -1,8 +1,10 @@
-package vaaks.ingrealm.ingredient;
+package vaaks.ingrealm.date.ingredients;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
+import vaaks.ingrealm.date.ingredients.dto.IngredientAdminDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,26 +20,26 @@ public class IngredientController {
     }
 
     @GetMapping("/ingredients")
-    public List<IngredientDTO> get(){
+    public List<IngredientAdminDTO> get(){
         return service.getAll().stream()
-                .map(IngredientDTO::of)
+                .map(IngredientAdminDTO::of)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/ingredients/{id}")
-    public IngredientDTO get(@PathVariable long id){
-        return IngredientDTO.of(service.get(id));
+    public IngredientAdminDTO get(@PathVariable long id){
+        return IngredientAdminDTO.of(service.get(id));
     }
 
     @PostMapping("/ingredients")
-    public IngredientDTO create(@RequestBody IngredientDTO dto){
-        return IngredientDTO.of(service.create(dto.toIngredient()));
+    public IngredientAdminDTO create(@RequestBody IngredientAdminDTO dto){
+        return IngredientAdminDTO.of(service.create(dto.toIngredient()));
     }
 
     @PutMapping("/ingredients/{id}")
-    public IngredientDTO modify(@PathVariable long id, @RequestBody IngredientDTO dto){
+    public IngredientAdminDTO modify(@PathVariable long id, @RequestBody IngredientAdminDTO dto){
         Ingredient ingredient = service.update(id, dto.toIngredient());
-        return IngredientDTO.of(ingredient);
+        return IngredientAdminDTO.of(ingredient);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

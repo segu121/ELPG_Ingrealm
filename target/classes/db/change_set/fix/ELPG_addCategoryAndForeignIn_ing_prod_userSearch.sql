@@ -78,7 +78,7 @@ create table if not exists ingredients
     name           char[]  not null,
     natural_rating integer not null,
     description    text,
-    "INCI_name"    char[]  not null,
+    INCI_name    char[]  not null,
     category_id    bigint  not null,
     rating         integer not null,
     constraint ingredients_pk

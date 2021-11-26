@@ -1,7 +1,8 @@
-package vaaks.ingrealm.product;
+package vaaks.ingrealm.date.product;
 
 import lombok.*;
-import vaaks.ingrealm.ingredient.Ingredient;
+import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
+
 
 import javax.persistence.*;
 import java.util.List;

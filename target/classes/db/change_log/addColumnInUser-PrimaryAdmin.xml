@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <property name="now" value="now()" dbms="mysql,h2"/>
     <property name="now" value="current_timestamp" dbms="postgresql"/>
@@ -13,18 +13,19 @@
     <property name="floatType" value="float4" dbms="postgresql, h2"/>
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
-  <!-- place to add changeSet using .sql file or another-->
+    <!-- place to add changeSet using .sql file or another-->
     <!--<
         changeSet id="number of next change" author="author name">
             <sqlFile path= path of auer file to change database or adding some value to table
             path="db/changeset/fix/...file.sql..."/>
         </changeSet
      >-->
-<!--    <changeSet id="1" author="segu121">-->
-<!--        <sqlFile path="db/change_set/fix/ELPG_sample_data.sql"/>-->
-<!--    </changeSet>-->
-    <changeSet id="1" author="segu121">
-        <sqlFile path="db/change_set/fix/ELPG_addCategoryAndForeignIn_ing_prod_userSearch.sql"/>
+    <changeSet id="2" author="segu121">
+        <addColumn tableName="users">
+            <column name="primary_admin" type="boolean" position="8">
+                <constraints nullable="false"></constraints>
+            </column>
+        </addColumn>
     </changeSet>
 
 </databaseChangeLog>
