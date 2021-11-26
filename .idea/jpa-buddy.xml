@@ -2,5 +2,7 @@
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig">
     <option name="defaultUnitInitialized" value="true" />
+    <option name="updateChangeLogPath" value="src/main/resources/db/liquibase-changeLog.xml" />
+    <option name="updateDbConnectionName" value="5193c988-7a1c-49d5-85e4-4c7d65f58d37" />
   </component>
 </project>
