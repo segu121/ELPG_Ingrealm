@@ -1,7 +1,7 @@
-package vaaks.ingrealm.ingredient;
+package vaaks.ingrealm.product;
 
 import lombok.*;
-import vaaks.ingrealm.product.Product;
+import vaaks.ingrealm.ingredient.Ingredient;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,16 +11,20 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Ingredient {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
+    private String producer;
     private double rating;
-    private String description;
+    private Long userId;
 
-//    @OneToMany
-//    private List<Product> products;
+   @OneToMany
+    private List<Ingredient> ingredients;
+
+
+
+
 }
