@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import vaaks.ingrealm.date.ingredients.dto.IngredientAdminDTO;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
+import vaaks.ingrealm.date.products.dto.ProductAdminDTO;
+import vaaks.ingrealm.date.products.product.Product;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,26 +22,26 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public List<IngredientAdminDTO> get(){
+    public List<ProductAdminDTO> get(){
         return service.getAll().stream()
-                .map(IngredientAdminDTO::of)
+                .map(ProductAdminDTO::of)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/products/{id}")
-    public IngredientAdminDTO get(@PathVariable long id){
-        return IngredientAdminDTO.of(service.get(id));
+    public ProductAdminDTO get(@PathVariable long id){
+        return ProductAdminDTO.of(service.get(id));
     }
 
     @PostMapping("/products")
-    public IngredientAdminDTO create(@RequestBody IngredientAdminDTO dto){
-        return IngredientAdminDTO.of(service.create(dto.toIngredient()));
+    public ProductAdminDTO create(@RequestBody ProductAdminDTO dto){
+        return ProductAdminDTO.of(service.create(dto.toProduct()));
     }
 
     @PutMapping("/products/{id}")
-    public IngredientAdminDTO modify(@PathVariable long id, @RequestBody IngredientAdminDTO dto){
-        Ingredient ingredient = service.update(id, dto.toIngredient());
-        return IngredientAdminDTO.of(ingredient);
+    public ProductAdminDTO modify(@PathVariable long id, @RequestBody ProductAdminDTO dto){
+        Product product = service.update(id, dto.toProduct());
+        return ProductAdminDTO.of(product);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
