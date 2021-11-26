@@ -20,8 +20,11 @@
             path="db/changeset/fix/...file.sql..."/>
         </changeSet
      >-->
+<!--    <changeSet id="1" author="segu121">-->
+<!--        <sqlFile path="db/change_set/fix/ELPG_sample_data.sql"/>-->
+<!--    </changeSet>-->
     <changeSet id="1" author="segu121">
-        <sqlFile path="db/change_set/fix/ELPG_sample_data.sql"/>
+        <sqlFile path="db/change_set/fix/ELPG_addCategoryAndForeignIn_ing_prod_userSearch.sql"/>
     </changeSet>
 
 </databaseChangeLog>
