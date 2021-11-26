@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
+import vaaks.ingrealm.date.users.user.User;
 
 @Data
 @Builder
@@ -29,14 +30,6 @@ public class IngredientAdminDTO {
                 .rating(rating)
                 .build();
     }
-//    private long id;
-//
-//    private String name;
-//    private int naturalRating;
-//    private String description;
-//    private String INCIName;
-//    private long categoryId;
-//    private int rating;
 
     public static IngredientAdminDTO of(Ingredient ingredient) {
         return new IngredientAdminDTO(
