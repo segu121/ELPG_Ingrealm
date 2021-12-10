@@ -20,12 +20,8 @@
             path="db/changeset/fix/...file.sql..."/>
         </changeSet
      >-->
-    <changeSet id="2" author="segu121">
-        <addColumn tableName="users">
-            <column name="primary_admin" type="boolean" position="8">
-                <constraints nullable="false"/>
-            </column>
-        </addColumn>
+    <changeSet id="3" author="segu121">
+        <sqlFile path="db/change_set/fix/ELPG_refreshValuesTypesInBaseSecond.sql"/>
     </changeSet>
 
 </databaseChangeLog>
