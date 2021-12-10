@@ -20,12 +20,12 @@
             path="db/changeset/fix/...file.sql..."/>
         </changeSet
      >-->
-    <changeSet id="2" author="segu121">
-        <addColumn tableName="users">
-            <column name="primary_admin" type="boolean" position="8">
-                <constraints nullable="false"/>
-            </column>
-        </addColumn>
+    <changeSet id="4" author="segu121">
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="category_id"/>
+        </preConditions>
+        <dropColumn tableName="ingredients" columnName="category_id"/>
+        <dropForeignKeyConstraint baseTableName="ingredient" constraintName="category_id"/>
     </changeSet>
 
 </databaseChangeLog>
