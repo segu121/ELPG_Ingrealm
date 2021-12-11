@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
-import vaaks.ingrealm.date.users.user.User;
+import vaaks.ingrealm.appuser.AppUser;
 
 @Data
 @Builder
