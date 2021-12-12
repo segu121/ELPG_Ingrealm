@@ -9,13 +9,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import vaaks.ingrealm.appuser.AppUserService;
+import vaaks.ingrealm.appuser.UsersService;
 
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private final AppUserService appUserService;
+    private final UsersService appUserService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
