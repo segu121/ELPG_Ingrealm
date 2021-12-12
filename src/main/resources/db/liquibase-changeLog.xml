@@ -9,8 +9,11 @@
       http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 
     <include file="db/change_log/refreshValuesTypeInBaseSecond.xml" />
+    <include file="db/change_log/addColumnInUser-PrimaryAdmin.xml"/>
     <include file="db/change_log/addTableIngredientCategory.xml"/>
     <include file="db/change_log/addIngredientsToIngredientsTable.xml"/>
     <include file="db/change_log/addValueToTableIngredientCategory.xml"/>
+    <include file="db/change_log/addColumnUserRole-UsersTable.xml"/>
+    <include file="db/change_log/addColumnEnabled-UsersTable.xml"/>
 <!--relativeToChangelogFile="false"-->
 </databaseChangeLog>

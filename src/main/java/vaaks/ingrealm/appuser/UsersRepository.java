@@ -4,13 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 
 @Repository
 @Transactional(readOnly = true)
-public interface UserRepository extends JpaRepository<AppUser, BigDecimal> {
+public interface UsersRepository extends JpaRepository<Users, Long> {
 
-    Optional<AppUser> findByEmail(String email);
+    Optional<Users> findByEmail(String email);
 }
