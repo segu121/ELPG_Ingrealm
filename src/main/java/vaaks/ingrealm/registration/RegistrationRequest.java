@@ -21,8 +21,6 @@ public class RegistrationRequest {
     private final String name;
     private final String lastName;
     private final String surrName;
-    private final Point Geolocation;
-    private final DateFormat registerDate;
 
 
 }
