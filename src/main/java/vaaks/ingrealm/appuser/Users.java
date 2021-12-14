@@ -39,10 +39,10 @@ public class Users implements UserDetails {
     private Boolean primaryAdmin;
 //    @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
-    private Boolean locked;
-    private Boolean enabled;
+    private Boolean locked = false;
+    private Boolean enabled = false;
 
-    public Users(String name, String email, String h_pass, String surrName, String nick, Point geolocation, Date registerDate, Boolean primaryAdmin, AppUserRole appUserRole, Boolean locked, Boolean enabled) {
+    public Users(String name, String email, String h_pass, String surrName, String nick, Point geolocation, Date registerDate, Boolean primaryAdmin, AppUserRole appUserRole) {
         this.name = name;
         this.email = email;
         this.h_pass = h_pass;
@@ -52,8 +52,6 @@ public class Users implements UserDetails {
         this.registerData = registerDate;
         this.primaryAdmin = primaryAdmin;
         this.appUserRole = appUserRole;
-        this.locked = locked;
-        this.enabled = enabled;
     }
 
 
