@@ -12,7 +12,7 @@ public class EmailValidate implements Predicate<String> {
 
     @Override
     public boolean test(String s) {
-        //Regex to validate
+        //TODO: Regex to validate
         return false;
     }
 
