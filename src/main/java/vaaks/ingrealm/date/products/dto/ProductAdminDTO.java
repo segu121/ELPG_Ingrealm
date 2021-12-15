@@ -4,11 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import vaaks.ingrealm.date.ingredients.dto.IngredientAdminDTO;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
 import vaaks.ingrealm.date.products.product.Product;
 
-import javax.persistence.Entity;
+import java.util.List;
 
 @Data
 @Builder
@@ -20,7 +19,7 @@ public class ProductAdminDTO {
     private String name;
     private String producer;
     private int productRating;
-    private String productIngredients;
+    private List<Ingredient> productIngredients;
     private String productImage;
     private int categoryId;
 

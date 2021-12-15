@@ -1,15 +1,20 @@
 package vaaks.ingrealm.date.ingredients;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vaaks.ingrealm.date.ingredients.IngredientRepository;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
+import vaaks.ingrealm.date.products.ProductController;
 
 
 import java.util.Arrays;
 import java.util.List;
 
 @Service
+@Slf4j
 public class IngredientService {
 
     private final IngredientRepository repository;
@@ -24,10 +29,12 @@ public class IngredientService {
     }
 
     public Ingredient get(long id) {
+        log.info("getting ingredient id=" + id);
         return repository.findById(id).orElseThrow();
     }
 
     public Ingredient create(Ingredient ingredient) {
+        log.info("creating ingredient name=" + ingredient.getName());
         return repository.save(ingredient);
     }
 
