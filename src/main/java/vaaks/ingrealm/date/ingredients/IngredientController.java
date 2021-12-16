@@ -1,5 +1,6 @@
 package vaaks.ingrealm.date.ingredients;
 
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,21 +8,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
 import vaaks.ingrealm.date.ingredients.dto.IngredientAdminDTO;
-import vaaks.ingrealm.date.products.ProductController;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:8080")
 public class IngredientController {
 
     private final IngredientService service;
 
-    @Autowired
-    public IngredientController(IngredientService service) {
-        this.service = service;
-    }
+//    @Autowired
+//    public IngredientController(IngredientService service) {
+//        this.service = service;
+//    }
 
     @GetMapping("/ingredients")
     public List<IngredientAdminDTO> get(){

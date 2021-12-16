@@ -1,5 +1,7 @@
 package vaaks.ingrealm.date.ingredients;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vaaks.ingrealm.date.ingredients.IngredientRepository;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
-import vaaks.ingrealm.date.products.ProductController;
 
 
 import java.util.Arrays;
@@ -16,13 +17,15 @@ import java.util.List;
 @Service
 @Slf4j
 public class IngredientService {
+@AllArgsConstructor
+public class IngredientService  {
 
     private final IngredientRepository repository;
 
-    @Autowired
-    public IngredientService(IngredientRepository repository) {
-        this.repository = repository;
-    }
+//    @Autowired
+//    public IngredientService(IngredientRepository repository) {
+//        this.repository = repository;
+//    }
 
     public List<Ingredient> getAll() {
         return repository.findAll();

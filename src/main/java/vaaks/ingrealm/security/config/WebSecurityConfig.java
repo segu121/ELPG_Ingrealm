@@ -37,11 +37,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and()
+        http
 //                That disable was in correctly way must be enabled when is register forms
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/registration/**", "/ingredients/**")
+                .antMatchers("/registration/**", "/ingredients/**", "/login/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated().and()
