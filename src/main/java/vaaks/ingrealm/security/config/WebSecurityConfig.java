@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                That disable was in correctly way must be enabled when is register forms
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/registration/**")
+                .antMatchers("/registration/**", "/ingredients/**", "/login/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated().and()

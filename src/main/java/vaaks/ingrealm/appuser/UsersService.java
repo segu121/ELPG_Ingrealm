@@ -6,20 +6,23 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import vaaks.ingrealm.login.LoginRequest;
 import vaaks.ingrealm.registration.token.ConfirmationToken;
 import vaaks.ingrealm.registration.token.ConfirmationTokenService;
+import vaaks.ingrealm.security.PasswordEncoder;
+import vaaks.ingrealm.utill.Message;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class UsersService implements UserDetailsService {
 
     private final UsersRepository userRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
+    private final PasswordEncoder passwordEncoder;
     private final static String USER_NOT_FOUND_MSG = "user with email %s not found";
 
     @Override
@@ -28,7 +31,7 @@ public class UsersService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
     }
 
-    public String singUpUser(Users appUser) {
+    public String singInUser(Users appUser) {
         boolean userExists = userRepository.findByEmail(appUser.getEmail())
                 .isPresent();
         System.out.println(appUser.getEmail());
@@ -36,7 +39,7 @@ public class UsersService implements UserDetailsService {
         if (userExists) {
             throw  new IllegalStateException("email already taken");
         }
-        String h_Pass = bCryptPasswordEncoder.encode(appUser.getPassword());
+        String h_Pass = passwordEncoder.bCryptPasswordEncoder().encode(appUser.getPassword());
         appUser.setH_pass(h_Pass);
         userRepository.save(appUser);
         String token = UUID.randomUUID().toString();
@@ -47,4 +50,27 @@ public class UsersService implements UserDetailsService {
         return token;
     }
 
+    public Message singUpUser(LoginRequest loginRequest, UserDetails user) {
+
+        boolean userExists = userRepository.findByEmail(loginRequest.getEmail())
+                .isPresent();
+
+
+        if (!userExists) {
+            throw  new IllegalStateException("invalid email");
+        } else {
+            String userPass = String.valueOf(user.getPassword());
+            String requestPass  = loginRequest.getPassword();
+            System.out.println("database pass:  " + userPass);
+            System.out.println("password from request:  " + requestPass);
+            boolean checkedPass = passwordEncoder.passwordMatchers(requestPass, userPass);
+            System.out.println(checkedPass);
+            if (checkedPass) {
+                //TODO: save dateTime to dataBase, do authentication key to Users,
+                return new Message("logged");
+            } else {
+                throw new IllegalStateException("invalid password");
+            }
+        }
+    }
 }

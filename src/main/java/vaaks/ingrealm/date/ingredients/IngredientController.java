@@ -1,5 +1,6 @@
 package vaaks.ingrealm.date.ingredients;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,14 +11,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@AllArgsConstructor
 public class IngredientController {
 
     private final IngredientService service;
 
-    @Autowired
-    public IngredientController(IngredientService service) {
-        this.service = service;
-    }
+//    @Autowired
+//    public IngredientController(IngredientService service) {
+//        this.service = service;
+//    }
 
     @GetMapping("/ingredients")
     public List<IngredientAdminDTO> get(){
