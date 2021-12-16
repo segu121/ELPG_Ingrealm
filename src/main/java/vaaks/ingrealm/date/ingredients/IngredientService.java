@@ -2,17 +2,21 @@ package vaaks.ingrealm.date.ingredients;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vaaks.ingrealm.date.ingredients.IngredientRepository;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
 
 
-import java.security.Provider;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
+@Slf4j
+public class IngredientService {
 @AllArgsConstructor
 public class IngredientService  {
 
@@ -28,10 +32,12 @@ public class IngredientService  {
     }
 
     public Ingredient get(long id) {
+        log.info("getting ingredient id=" + id);
         return repository.findById(id).orElseThrow();
     }
 
     public Ingredient create(Ingredient ingredient) {
+        log.info("creating ingredient name=" + ingredient.getName());
         return repository.save(ingredient);
     }
 

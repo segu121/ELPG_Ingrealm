@@ -19,6 +19,6 @@ public class Ingredient {
     private int naturalRating;
     private String description;
     private String INCIName;
-    private long categoryId;
+//    private long categoryId;
     private int rating;
 }
