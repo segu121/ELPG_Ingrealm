@@ -15,7 +15,7 @@ public class IngredientAdminDTO {
     private String name;
     private int naturalRating;
     private String description;
-    private String INCI_Name;
+    private String INCIName;
 //    private Category categoryName;
     private int rating;
 
@@ -25,7 +25,7 @@ public class IngredientAdminDTO {
                 .name(name)
                 .naturalRating(naturalRating)
                 .description(description)
-                .INCI_Name(INCI_Name)
+                .INCIName(INCIName)
                 .rating(rating)
                 .build();
     }
@@ -36,7 +36,7 @@ public class IngredientAdminDTO {
                 ingredient.getName(),
                 ingredient.getNaturalRating(),
                 ingredient.getDescription(),
-                ingredient.getINCI_Name(),
+                ingredient.getINCIName(),
                 ingredient.getRating()
         );
     }

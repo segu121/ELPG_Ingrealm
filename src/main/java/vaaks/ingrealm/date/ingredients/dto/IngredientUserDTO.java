@@ -14,7 +14,7 @@ public class IngredientUserDTO {
     private long id;
     private String name;
     private String description;
-    private String INCI_Name;
+    private String INCIName;
     //    private Category categoryName;
 
 
@@ -23,7 +23,7 @@ public class IngredientUserDTO {
                 .id(id)
                 .name(name)
                 .description(description)
-                .INCI_Name(INCI_Name)
+                .INCIName(INCIName)
                 .build();
     }
 //    private long id;
