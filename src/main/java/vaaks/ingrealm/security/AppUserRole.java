@@ -1,4 +1,4 @@
-package vaaks.ingrealm.appuser;
+package vaaks.ingrealm.security;
 
 public enum AppUserRole {
     USER, ADMIN
