@@ -1,6 +1,7 @@
 package vaaks.ingrealm.security.config;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,11 +18,23 @@ import vaaks.ingrealm.appuser.UsersService;
 import java.util.Arrays;
 
 @Configuration
-@AllArgsConstructor
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     private final UsersService appUserService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    public WebSecurityConfig(UsersService appUserService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.appUserService = appUserService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
+//    public WebSecurityConfig(boolean disableDefaults, UsersService appUserService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+//        super(disableDefaults);
+//        this.appUserService = appUserService;
+//        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -44,7 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/registration/**", "/ingredients/**")
                 .permitAll()
                 .anyRequest()
-                .authenticated().and()
+                .authenticated()
+                .and()
                 .formLogin();
     }
 

@@ -4,7 +4,8 @@ import lombok.*;
 import vaaks.ingrealm.date.category.Category;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity//(name = "ingredients")
@@ -23,7 +24,13 @@ public class Ingredient {
     private String description;
     @Column(name = "inci_name")
     private String INCIName;
-    @OneToMany
-    private List<Category> categories;
+
+    @ManyToMany
+    @JoinTable(
+            name = "ingredient_category",
+            joinColumns = @JoinColumn(name = "ingredient_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<Category> categories;
     private int rating;
 }
