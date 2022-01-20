@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login-page")
                 .permitAll()
-                .defaultSuccessUrl("admin-page", true)
+                .defaultSuccessUrl("/admin-page", true)
                 .and()
                 .rememberMe()
                 .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(25))

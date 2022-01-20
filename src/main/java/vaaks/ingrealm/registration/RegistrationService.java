@@ -2,15 +2,10 @@ package vaaks.ingrealm.registration;
 
 
 import lombok.AllArgsConstructor;
-//import org.apache.logging.log4j.core.config.builder.api.Component;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import vaaks.ingrealm.security.AppUserRole;
-import vaaks.ingrealm.appuser.AppUserRole;
 import vaaks.ingrealm.appuser.Users;
 import vaaks.ingrealm.appuser.UsersService;
-
+import vaaks.ingrealm.security.AppUserRole;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
