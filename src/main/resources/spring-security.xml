@@ -1,0 +1,13 @@
+<authentication-manager>
+    <authentication-provider>
+        <password-encoder ref="encoder"/>
+        <jdbc-user-service data-source-ref=""/>
+    </authentication-provider>
+</authentication-manager>
+
+<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+    <beans:constructor-arg name="strength" value="10"/>
+</beans:bean>
+
+
+

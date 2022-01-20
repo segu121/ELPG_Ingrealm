@@ -16,16 +16,14 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class IngredientService {
-@AllArgsConstructor
 public class IngredientService  {
 
     private final IngredientRepository repository;
 
-//    @Autowired
-//    public IngredientService(IngredientRepository repository) {
-//        this.repository = repository;
-//    }
+    @Autowired
+    public IngredientService(IngredientRepository repository) {
+        this.repository = repository;
+    }
 
     public List<Ingredient> getAll() {
         return repository.findAll();
