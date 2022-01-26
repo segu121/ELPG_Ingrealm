@@ -21,12 +21,12 @@ public class CategoryController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/ingredients/{id}")
+    @GetMapping("/categories/{id}")
     public CategoryDTO get(@PathVariable long id){
         return CategoryDTO.of(service.get(id));
     }
 
-    @PostMapping("/ingredients")
+    @PostMapping("/categories")
     public CategoryDTO create(@RequestBody CategoryDTO dto){
         return CategoryDTO.of(service.create(dto.toCategory()));
     }
