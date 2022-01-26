@@ -1,9 +1,9 @@
 package vaaks.ingrealm.date.category;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import vaaks.ingrealm.date.ingredients.IngredientService;
+import vaaks.ingrealm.date.ingredients.dto.IngredientAdminDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,5 +19,15 @@ public class CategoryController {
         return service.getAll().stream()
                 .map(CategoryDTO::of)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/ingredients/{id}")
+    public CategoryDTO get(@PathVariable long id){
+        return CategoryDTO.of(service.get(id));
+    }
+
+    @PostMapping("/ingredients")
+    public CategoryDTO create(@RequestBody CategoryDTO dto){
+        return CategoryDTO.of(service.create(dto.toCategory()));
     }
 }

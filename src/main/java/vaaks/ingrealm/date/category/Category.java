@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Data
