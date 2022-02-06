@@ -1,4 +1,4 @@
-package vaaks.ingrealm.registration.token;
+package vaaks.ingrealm.appuser.token;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
