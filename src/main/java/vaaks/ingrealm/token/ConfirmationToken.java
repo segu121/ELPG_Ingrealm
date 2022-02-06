@@ -1,9 +1,8 @@
-package vaaks.ingrealm.appuser.token;
+package vaaks.ingrealm.token;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.catalina.User;
 import vaaks.ingrealm.appuser.Users;
 
 import javax.persistence.*;

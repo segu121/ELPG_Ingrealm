@@ -1,4 +1,4 @@
-package vaaks.ingrealm.appuser.token;
+package vaaks.ingrealm.token;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,10 +19,10 @@ public class ConfirmationTokenService {
         return confirmationTokenRepository.findByToken(token);
     }
 
-//    public void setConfirmedAt(String token) {
-//        Optional<ConfirmationToken> existToken = getToken(token);
+    public void setConfirmedAt(String token) {
+        Optional<ConfirmationToken> existToken = getToken(token);
 //        if (existToken.isPresent()) {
 //
 //        }
-//    }
+    }
 }

@@ -25,30 +25,23 @@ public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
     private String email;
     private String h_pass;
-    private String surname;
     private String nick;
-    @Transient
-    private Point geolocation;
 
     @DateTimeFormat
     private Date registerData;
-
+    private String token;
     private Boolean primaryAdmin;
 //    @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
     private Boolean locked = false;
     private Boolean enabled = false;
 
-    public Users(String name, String email, String h_pass, String surrName, String nick, Point geolocation, Date registerDate, Boolean primaryAdmin, AppUserRole appUserRole) {
-        this.name = name;
+    public Users(String email, String h_pass, String nick, Date registerDate, Boolean primaryAdmin, AppUserRole appUserRole) {
         this.email = email;
         this.h_pass = h_pass;
-        this.surname = surrName;
         this.nick = nick;
-        this.geolocation = geolocation;
         this.registerData = registerDate;
         this.primaryAdmin = primaryAdmin;
         this.appUserRole = appUserRole;
@@ -66,13 +59,15 @@ public class Users implements UserDetails {
         return h_pass;
     }
 
-    public String getEmail() {return email;}
-
-    public String getSurname() {return surname;}
     @Override
     public String getUsername() {
-        return name;
+        return nick;
     }
+
+    public String getEmail() {return email;}
+
+    public String getToken() {return token;}
+
 
     @Override
     public boolean isAccountNonExpired() {
