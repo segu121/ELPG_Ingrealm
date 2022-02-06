@@ -4,7 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vaaks.ingrealm.date.category.Category;
 import vaaks.ingrealm.date.ingredients.ingredient.Ingredient;
+
+import java.util.Set;
 
 @Data
 @Builder
@@ -15,7 +18,7 @@ public class IngredientUserDTO {
     private String name;
     private String description;
     private String INCIName;
-    //    private Category categoryName;
+    private Set<Category> categories;
 
 
     public Ingredient toIngredient() {
@@ -24,6 +27,7 @@ public class IngredientUserDTO {
                 .name(name)
                 .description(description)
                 .INCIName(INCIName)
+                .categories(categories)
                 .build();
     }
 //    private long id;
