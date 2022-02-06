@@ -1,4 +1,4 @@
-package vaaks.ingrealm.appuser.token;
+package vaaks.ingrealm.registration.token;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

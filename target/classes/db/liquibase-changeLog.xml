@@ -11,10 +11,9 @@
     <include file="db/change_log/refreshValuesTypeInBaseSecond.xml" />
     <include file="db/change_log/addColumnInUser-PrimaryAdmin.xml"/>
     <include file="db/change_log/addTableIngredientCategory.xml"/>
+    <include file="db/change_log/addIngredientsToIngredientsTable.xml"/>
     <include file="db/change_log/addValueToTableIngredientCategory.xml"/>
     <include file="db/change_log/addColumnUserRole-UsersTable.xml"/>
     <include file="db/change_log/addColumnEnabled-UsersTable.xml"/>
-    <include file="db/change_log/addValueToIngredientTableCategory_AddProductCategoryTableConnector_DropColumUsers.xml"/>
-    <include file="db/change_log/addConfirmationTokenTable_DropColumnTokenInUsers.xml"/>
 <!--relativeToChangelogFile="false"-->
 </databaseChangeLog>

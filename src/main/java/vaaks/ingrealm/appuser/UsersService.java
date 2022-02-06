@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import vaaks.ingrealm.login.LoginRequest;
-import vaaks.ingrealm.token.ConfirmationToken;
-import vaaks.ingrealm.token.ConfirmationTokenService;
 import vaaks.ingrealm.utill.Message;
 
 import java.time.LocalDateTime;
@@ -22,7 +20,6 @@ public class UsersService implements UserDetailsService {
     private final UsersRepository userRepository;
     @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final ConfirmationTokenService confirmationTokenService;
     private final static String USER_NOT_FOUND_MSG = "user with email %s not found";
 
     @Override
@@ -30,7 +27,6 @@ public class UsersService implements UserDetailsService {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
     }
-
 
     public String singInUser(Users appUser) {
         boolean userExists = userRepository.findByEmail(appUser.getEmail())
@@ -43,10 +39,10 @@ public class UsersService implements UserDetailsService {
         String h_Pass = bCryptPasswordEncoder.encode(appUser.getPassword());
         appUser.setH_pass(h_Pass);
         userRepository.save(appUser);
-        String token = UUID.randomUUID().toString();
-        ConfirmationToken confirmationToken = new ConfirmationToken(token,
-                LocalDateTime.now(), LocalDateTime.now().plusMinutes(15), appUser);
-        confirmationTokenService.saveConfirmationToken(confirmationToken);
+//        String token = UUID.randomUUID().toString();
+//        ConfirmationToken confirmationToken = new ConfirmationToken(token,
+//                LocalDateTime.now(), LocalDateTime.now().plusMinutes(15), appUser);
+//        confirmationTokenService.saveConfirmationToken(confirmationToken);
         //TODO: send email
         return "save";
     }
